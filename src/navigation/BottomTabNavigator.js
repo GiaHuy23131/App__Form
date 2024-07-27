@@ -9,12 +9,19 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Navigator 
+            screenOptions={{
+                headerShown: false,
+                tabBarStyle: { backgroundColor: '#DBA8A8' }, // Thay đổi màu nền
+                tabBarLabelStyle: { fontSize: 14}, // Thay đổi màu chữ
+                tabBarActiveTintColor: '#ffffff', // Màu khi được chọn
+                tabBarInactiveTintColor: '#000000', // Màu khi không được chọn
+            }}>
             <Tab.Screen name="Form" component={Form} options={{
                 tabBarLabel: "Form",
                 tabBarIcon: () => {
                     return (
-                        <Icon name="file-text" size={30} color="#000000" />
+                        <Icon name="file-text" size={35} color="#000000" />
                     );
                 }
             }} />
@@ -22,7 +29,7 @@ const BottomTabNavigator = () => {
                 tabBarLabel: "FormAll",
                 tabBarIcon: () => {
                     return (
-                        <Icon name="file-plus" size={30} color="#000000" />
+                        <Icon name="file-plus" size={35} color="#000000" />
                     );
                 }
             }} />
