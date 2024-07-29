@@ -5,6 +5,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 // Screen
 import DrawerNavigator from './DrawerNavigator';
+import AddForm from '../screens/AddForm';
 
 const Stack = createStackNavigator();
 
@@ -16,8 +17,18 @@ const IconBack = (navigation, title) => ({
         <Feather
             name="arrow-left"
             size={30}
-            color="#29E3EF"
             onPress={() => navigation.goBack()}
+        />
+    ),
+});
+const IconHeaderRight = (nameIcon, onPress) => ({
+    headerShown: true,
+    headerRight: () => (
+        <Feather
+            name={nameIcon}
+            size={30}
+            style={{ marginRight: 15 }}
+            onPress={onPress} // Thay đổi điều hướng tại đây
         />
     ),
 });
@@ -27,6 +38,8 @@ const StackNavigator = () => {
         <NavigationContainer>
             <Stack.Navigator initialRouteName='DrawerNavigator' screenOptions={{ headerStyle: { backgroundColor: '#DBA8A8' }, headerShown: false }}>
                 <Stack.Screen name='DrawerNavigator' component={DrawerNavigator} />
+                <Stack.Screen name='AddForm' component={AddForm}
+                    options={({ navigation }) => IconBack(navigation, "Add Form")} />
             </Stack.Navigator>
         </NavigationContainer>
     );
