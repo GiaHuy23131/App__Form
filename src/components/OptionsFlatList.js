@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Feather from 'react-native-vector-icons/Feather';
 import { RadioButton } from 'react-native-paper';
@@ -9,7 +9,7 @@ import styles from '../styles/styles';
 import MultipleChoice from "../components/MultipleChoice";
 import Paragraph from "../components/Paragraph";
 import ShortAnswer from "../components/ShortAnswer";
-const OptionsFlatList = ({ item, checked }) => {
+const OptionsFlatList = ({ item}) => {
     // console.log('item',item);
     return (
         <View>

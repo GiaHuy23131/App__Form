@@ -2,11 +2,12 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Feather from 'react-native-vector-icons/Feather';
+import Octicons from 'react-native-vector-icons/Octicons';
 import { RadioButton } from 'react-native-paper';
 //styles
 import styles from '../styles/styles';
 // components
-const MultipleChoice = ({ item, index, checked}) => {
+const MultipleChoice = ({ item, index, checked }) => {
     const [requiredQuestion, setRequiredQuestion] = useState(null);
     const [selectedValue, setSelectedValue] = useState([]);
     const handlerAddRadioButton = () => {
@@ -28,8 +29,9 @@ const MultipleChoice = ({ item, index, checked}) => {
                 <RadioButton.Group>
                     {selectedValue.map((item, index) => (
                         <View key={index} style={styles.radioButton}>
-                            <RadioButton.Android value={item.options}/>
+                            <RadioButton.Android value={item.options} />
                             <TextInput style={styles.radioLabel} placeholder={item.label + " " + index} />
+                            <Octicons name={'x'} size={30} style={{ marginLeft: 'auto' }}/>
                         </View>
                     ))}
                 </RadioButton.Group>

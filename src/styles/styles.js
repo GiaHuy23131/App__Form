@@ -63,7 +63,9 @@ const styles = StyleSheet.create({
     btnView: {
         flexDirection: 'row',
         marginTop: 'auto',
-        margin: 10,
+        marginRight: 10,
+        marginLeft: 10,
+        backgroundColor: '#FCF3F3',
     },
     radioButton: {
         flexDirection: 'row',
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginTop: 10,
         padding: 10,
-        width:300,
+        width: 300,
         height: 300,
     },
     modalView: {
@@ -91,28 +93,32 @@ const styles = StyleSheet.create({
         width: '50%',
         marginLeft: 'auto',
         marginTop: '22%',
-      },
-      button: {
+    },
+    button: {
         borderRadius: 20,
         padding: 10,
         elevation: 2,
-      },
-      buttonOpen: {
+    },
+    buttonOpen: {
         backgroundColor: '#F194FF',
-      },
-      buttonClose: {
+    },
+    buttonClose: {
         backgroundColor: '#2196F3',
-      },
-      textStyle: {
+    },
+    textStyle: {
         color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
-      },
-      modalText: {
+    },
+    modalText: {
         marginBottom: 15,
         textAlign: 'center',
-      },
-    
+    },
+    notication: {
+        textAlign: 'center',
+        margin: 10,
+        fontSize: 25,
+    },
 
 });
 export default styles;
