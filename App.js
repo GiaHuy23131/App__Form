@@ -1,12 +1,24 @@
 import 'react-native-gesture-handler';
-import { StyleSheet, Text, View } from 'react-native';
-import styles from './src/styles/styles';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './src/navigation/StackNavigator';
-import DrawerNavigator from './src/navigation/DrawerNavigator';
+import AuthNavigator from './src/navigation/AuthNavigator';
+import styles from './src/styles/styles';
+
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userType, setUserType] = useState('');
+
   return (
-    <View style={styles.container} >
-      <StackNavigator />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        {isLoggedIn ? (
+          <StackNavigator />
+        ) : (
+          <AuthNavigator setIsLoggedIn={setIsLoggedIn} setUserType={setUserType} />
+        )}
+      </View>
+    </NavigationContainer>
   );
 }
