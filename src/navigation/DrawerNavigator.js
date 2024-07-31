@@ -5,6 +5,7 @@ import Form from '../screens/Form';
 //components
 import CustomDrawerContent from '../components/CustomDrawerContent';
 import BottomTabNavigator from './BottomTabNavigator';
+import Message from '../screens/MessageScreen';
 
 const screenOptions = (title, iconName) => ({
     drawerLabel: title,
@@ -20,7 +21,9 @@ const screenOptions = (title, iconName) => ({
     drawerInactiveBackgroundColor: '#fff',
     headerShown: true,
 });
+
 const Drawer = createDrawerNavigator();
+
 const DrawerNavigator = () => {
     const user = {
         id: "1",
@@ -31,6 +34,7 @@ const DrawerNavigator = () => {
         email: "admin@gmail.com",
         passWord: "123456",
     }
+
     return (
         <Drawer.Navigator drawerContent={(props) =>
             <CustomDrawerContent {...props} user={user} />} screenOptions={{ headerStyle: { backgroundColor: '#DBA8A8' } }} >
@@ -39,7 +43,13 @@ const DrawerNavigator = () => {
                 component={BottomTabNavigator}
                 options={screenOptions('Form', 'home')}
             />
+             <Drawer.Screen
+                name='Message'
+                component={Message}
+                options={screenOptions('Message', 'message')}
+            />
         </Drawer.Navigator>
-    )
+    );
 }
+
 export default DrawerNavigator;
