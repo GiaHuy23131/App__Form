@@ -111,7 +111,10 @@ const MultipleChoice = ({ item, index, checked }) => {
     setIsPopupVisible(true);
     setIsMenuVisible(false);
   };
-
+  const handlerDeleteRadio = (item, index) => {
+    const newSelectedValue = selectedValue.filter((_, i) => i !== index);
+    setSelectedValue(newSelectedValue);
+  }
   return (
     <View style={styles.viewListForm}>
       <View style={styles.radioButton}>
@@ -137,7 +140,7 @@ const MultipleChoice = ({ item, index, checked }) => {
             <View key={index} style={styles.radioButton}>
               <RadioButton.Android value={item.options} />
               <TextInput style={styles.radioLabel} placeholder={item.label + " " + index} />
-              <Octicons name={'x'} size={30} style={{ marginLeft: 'auto' }} />
+              <Octicons name={'x'} size={30} style={{ marginLeft: 'auto' }} onPress={() => handlerDeleteRadio(item, index)} />
             </View>
           ))}
         </RadioButton.Group>
